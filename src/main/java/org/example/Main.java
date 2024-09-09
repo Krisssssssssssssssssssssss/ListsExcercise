@@ -1,17 +1,26 @@
 package org.example;
-
+import java.util.ArrayList;
+import java.util.List;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        List<Student> students = new ArrayList<Student>();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        Student John = new Student("John", "Doe", 23);
+        Student Jane = new Student("Jane", "Doe", 22);
+        Student Jack = new Student("Jack", "Doe", 21);
+        students.add(John);
+        students.add(Jane);
+        students.add(Jack);
+
+        School newSchool = new School();
+        newSchool.students = students;
+        System.out.println(newSchool.students);
+
+        newSchool.removeStudent(John);
+        System.out.println(newSchool.students);
+        System.out.println(newSchool.findStudentById(21));
+
     }
 }
